@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<h2>Edit Assignment</h2>
+<form action="/assignments/<%= assignment._id %>?_method=PUT" method="POST" class="mb-3">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input class="form-control" name="title" value="<%= assignment.title %>" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Course</label>
+    <input class="form-control" name="course" value="<%= assignment.course %>" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Due Date</label>
+    <input type="date" class="form-control" name="dueDate" value="<%= assignment.dueDate.toISOString().slice(0,10) %>" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      <option <%= assignment.status === 'Not Started' ? 'selected' : '' %>>Not Started</option>
+      <option <%= assignment.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+      <option <%= assignment.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Notes</label>
+    <textarea name="notes" class="form-control"><%= assignment.notes %></textarea>
+  </div>
+  <button class="btn btn-primary">Save</button>
+  <a class="btn btn-secondary" href="/assignments">Cancel</a>
+</form>
+<%- include('../partials/footer') %>

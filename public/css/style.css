@@ -1,0 +1,5 @@
+/* public/css/styles.css */
+body { background: #f6f9ff; }
+.navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
+.table thead { background: rgba(13,110,253,0.08); }
+footer { color: #666; }
